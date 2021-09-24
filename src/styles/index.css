@@ -1,0 +1,10 @@
+#root{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 128px;
+}
+
+.max-size{
+    max-width: 360px;
+}
