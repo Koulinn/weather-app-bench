@@ -1,10 +1,11 @@
 import React from 'react'
-import { WiDaySunny } from "weather-icons-react";
 import { useState, useEffect } from 'react'
 import requests from '../../lib';
 import Loading from './Loading';
+import  pkg from 'celsius'
 
 
+const {toCelsius} = pkg
 
 function CardComp({ temp, weatherState, city }) {
     const [cityWeather, setCityWeather] = useState({})
@@ -19,7 +20,8 @@ function CardComp({ temp, weatherState, city }) {
         <div className="col-6 mt-5 p-3">
             <div className="d-flex justify-content-between">
                 <div>
-                    <h2 className="mb-1 pb-0">{cityWeather.serverData ? cityWeather.serverData.main.temp : <Loading />}</h2>
+                    <h2 className="mb-1 pb-0">{cityWeather.serverData ? `${cityWeather.serverData.main.temp} F`  : <Loading />}</h2>
+                    <h2 className="mb-1 pb-0">{cityWeather.serverData ? `${toCelsius(cityWeather.serverData.main.temp, 2)} C`  : <Loading />}</h2>
                     <p>{cityWeather.serverData ? cityWeather.serverData.weather[0].main : <Loading />}</p>
                 </div>
                 {cityWeather.serverData ?
