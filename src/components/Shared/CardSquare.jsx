@@ -2,13 +2,14 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import requests from '../../lib';
 import Loading from './Loading';
-import  pkg from 'celsius'
+import pkg from 'celsius'
 
 
-const {toCelsius} = pkg
+const { toCelsius } = pkg
 
 function CardComp({ temp, weatherState, city }) {
     const [cityWeather, setCityWeather] = useState({})
+    const [isCelsius, setIsCelsius] = useState(true)
 
     useEffect(() => {
         const getCityWeatherData = async () => setCityWeather(await requests.getCurrentWeather(city))
@@ -20,8 +21,13 @@ function CardComp({ temp, weatherState, city }) {
         <div className="col-6 mt-5 p-3">
             <div className="d-flex justify-content-between">
                 <div>
-                    <h2 className="mb-1 pb-0">{cityWeather.serverData ? `${cityWeather.serverData.main.temp} F`  : <Loading />}</h2>
-                    <h2 className="mb-1 pb-0">{cityWeather.serverData ? `${toCelsius(cityWeather.serverData.main.temp, 2)} C`  : <Loading />}</h2>
+                    {isCelsius ?
+
+                        <h2 className="mb-1 pb-0">{cityWeather.serverData ? `${toCelsius(cityWeather.serverData.main.temp, 2)} C` : <Loading />}</h2>
+                        :
+
+                        <h2 className="mb-1 pb-0">{cityWeather.serverData ? `${cityWeather.serverData.main.temp} F` : <Loading />}</h2>
+                    }
                     <p>{cityWeather.serverData ? cityWeather.serverData.weather[0].main : <Loading />}</p>
                 </div>
                 {cityWeather.serverData ?
