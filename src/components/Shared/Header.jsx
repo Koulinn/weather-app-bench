@@ -11,7 +11,7 @@ function Header({ setLocationValue }) {
 
     return (
         <div>
-            <h1>Pick Location</h1>
+            <h1 className="text-center mb-4">Weather cloud</h1>
             <Form>
                 <Form.Group controlId="locationForm">
                     <Form.Control type="text" placeholder="Enter location"

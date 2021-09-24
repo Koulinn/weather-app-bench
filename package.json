@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
     "celsius": "^1.0.2",
+    "is-even": "^1.0.0",
     "loadsh": "^0.0.4",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.3",

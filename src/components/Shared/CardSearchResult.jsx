@@ -11,7 +11,7 @@ function CardSearchResult({ cityWeather, locationValue }) {
     const [isCelsius, setIsCelsius] = useState(true)
 
     return (
-        <div className={"col-12 mt-5 p-3"}>
+        <div className={"card-wrapper col-12 mt-5 p-3 pb-1"}>
             <div className="d-flex justify-content-between">
                 <div>
                     {isCelsius ?

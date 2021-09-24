@@ -1,0 +1,73 @@
+body {
+  background: linear-gradient(
+    143.05deg,
+    #66edff 0%,
+    #7f66ff 45.75%,
+    #4c4674 100%
+  );
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+    color: aliceblue;
+  }
+  h6 {
+    color: aliceblue;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  small {
+    color: aliceblue;
+    font-weight: 600;
+  }
+}
+.mobile-emulator-size {
+  max-width: 360px;
+  margin-top: 16px;
+  margin-bottom: 64px;
+  border: 1px;
+  .row {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.card-wrapper {
+  background: radial-gradient(
+    100% 100% at 0% 0%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  // box-shadow: inset -5px -5px 250px rgb(191 209 243 / 20%);
+  -webkit-backdrop-filter: blur(42px);
+  backdrop-filter: blur(42px);
+  border-radius: 16px;
+  box-shadow: 0px 30px 60px -30px rgba(0, 0, 0, 0.3),
+    0px 50px 100px -20px rgba(50, 50, 93, 0.25),
+    inset 0px -2px 6px rgba(10, 37, 64, 0.35);
+  transition: all 1s;
+}
+
+.card-outter-wrapper {
+  :hover {
+    box-shadow: 1.95px 1.95px 2.6px rgb(0 0 0 / 15%);
+  }
+}
+
+.selected {
+  box-shadow: 1.95px 1.95px 2.6px rgb(0 0 0 / 15%);
+}
+
+.search-fail {
+  .search-fail-img {
+    max-width: 100%;
+    max-height: 50%;
+    object-fit: contain;
+  }
+  small {
+    color: aliceblue;
+    font-weight: 600;
+  }
+}

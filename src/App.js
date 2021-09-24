@@ -12,23 +12,32 @@ function App() {
   const [locationCityWeather, setLocationSetWeather] = useState({})
   const [isSearchFound, setIsSearchFound] = useState(false)
   const [isSearchFailed, setSearchFailed] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
 
   useEffect(() => {
     const getCityCoordData = async () => {
       if(locationValue.length > 3){
         const response = await requests.getCurrentWeather(locationValue)
-        console.log(response, 'from apaaaaaaaaaaaaap')
         if(response != '404'){
           const cityWeatherOneCall = await requests.getCityOneCall(response.coord)
           setLocationSetWeather(cityWeatherOneCall)
           setSearchFailed(false)
           setIsSearchFound(true)
+          setIsSearching(false)
+          return
         } else {
           setIsSearchFound(false)
           setSearchFailed(true)
+          setIsSearching(false)
+          return
         }
 
+      } else {
+
       }
+      setSearchFailed(false)
+      setIsSearching(false)
+      setIsSearchFound(false)
     }
     getCityCoordData()
 
@@ -38,7 +47,7 @@ function App() {
 
 
   return (
-    <Container className="max-size" fluid>
+    <Container className="mobile-emulator-size" fluid>
       <Router>
         <Route path="/" exact render={(routerProps) =>
           <Home {...routerProps} locationValue={locationValue} isSearchFailed={isSearchFailed} setLocationValue={setLocationValue} isSearchFound={isSearchFound} locationCityWeather={locationCityWeather}/>}>
